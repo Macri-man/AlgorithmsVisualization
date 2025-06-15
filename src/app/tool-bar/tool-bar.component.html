@@ -1,1 +1,19 @@
-<p>tool-bar works!</p>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="side" [opened]="isSidenavOpened" class="sidenav">
+    <app-toolbar></app-toolbar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="toggleSidenav()" aria-label="Toggle sidenav">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My Application</span>
+    </mat-toolbar>
+
+    <div class="content">
+      <h1>Welcome to the main content area!</h1>
+      <p>Here you can put your app's main content.</p>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
