@@ -1,0 +1,50 @@
+app-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  /* Ensures it stays on top */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+app-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Container holds sidenav and main content */
+.container1 {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidenav styles */
+.al-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  /* Adjust to your desired width */
+  height: 100vh;
+  z-index: 1000;
+  background-color: white;
+  /* or your toolbar color */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content pushed to the right but still behind sidenav */
+.al-right {
+  flex-grow: 1;
+  margin-left: 0;
+  /* Keep at 0 to allow overlap */
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}

@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-line',
-  imports: [ CommonModule, DragDropModule ],
+  imports: [DragDropModule],
   templateUrl: './line.component.html',
   styleUrl: './line.component.scss'
 })

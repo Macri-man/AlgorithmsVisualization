@@ -1,19 +1,72 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer mode="side" [opened]="isSidenavOpened" class="sidenav">
-    <app-toolbar></app-toolbar>
-  </mat-sidenav>
+<div class="toolbar-container" style="--toolbar-width:72px; position: relative; top: 0;">
+  <div class="toolbar-measure"></div>
 
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="toggleSidenav()" aria-label="Toggle sidenav">
-        <mat-icon>menu</mat-icon>
+  <!-- Dismiss button -->
+  <div class="toolbar-dismiss-tool" style="text-align:center; margin-bottom: 8px;">
+    <button mat-icon-button aria-label="Dismiss toolbar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="#5F6672">
+        <path fill-rule="evenodd" d="m6.646 4.646.708.708-2.147 2.145L13 7.5v1H5.207l2.147 2.146-.708.708L3.293 8z" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Tool list container -->
+  <div class="tool-list-container" [style.width.px]="72" style="overflow: visible;">
+
+    <!-- Note Tool -->
+    <div class="element-tool-card draggable hoverable" draggable="true" matTooltip="Note" matTooltipPosition="right"
+      style="margin-bottom:12px; cursor: grab;">
+      <button mat-button disableRipple
+        style="width:100%; display:flex; align-items:center; justify-content:center; flex-direction: column; padding:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 24" fill="none">
+          <rect width="32" height="24" rx="2" fill="#FFF" />
+          <path fill="#48505E"
+            d="M5.75 5h20.5a.75.75 0 1 1 0 1.5H5.75a.75.75 0 0 1 0-1.5zm0 5h20.5a.75.75 0 1 1 0 1.5H5.75a.75.75 0 1 1 0-1.5zm0 5h18.143a.75.75 0 1 1 0 1.5H5.75a.75.75 0 1 1 0-1.5z" />
+        </svg>
+        <span style="font-size: 12px; margin-top: 4px;">Note</span>
       </button>
-      <span>My Application</span>
-    </mat-toolbar>
-
-    <div class="content">
-      <h1>Welcome to the main content area!</h1>
-      <p>Here you can put your app's main content.</p>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+    <!-- Link Tool -->
+    <div class="element-tool-link draggable hoverable" draggable="true" matTooltip="Link" matTooltipPosition="right"
+      style="margin-bottom:12px; cursor: grab;">
+      <button mat-button disableRipple
+        style="width:100%; display:flex; align-items:center; justify-content:center; flex-direction: column; padding:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 24" fill="none">
+          <rect width="32" height="24" rx="2" fill="#FFF" />
+          <path fill="#48505E" fill-rule="nonzero"
+            d="M17.986 10.014a4.285 4.285 0 0 1 0 6.06l-1.67 1.67a4.285 4.285 0 0 1-6.06-6.06.741.741 0 0 1 1.048 1.05 2.802 2.802 0 0 0 3.963 3.962l1.67-1.67a2.802 2.802 0 0 0 0-3.964.741.741 0 1 1 1.049-1.048zm3.759-3.759a4.285 4.285 0 0 1 0 6.06.741.741 0 0 1-1.049-1.048 2.802 2.802 0 0 0-3.963-3.963l-1.67 1.67a2.802 2.802 0 0 0 0 3.964.741.741 0 1 1-1.049 1.048 4.285 4.285 0 0 1 0-6.06l1.67-1.67a4.285 4.285 0 0 1 6.06 0z" />
+        </svg>
+        <span style="font-size: 12px; margin-top: 4px;">Link</span>
+      </button>
+    </div>
+
+    <!-- Task List Tool -->
+    <div class="element-tool-task-list draggable hoverable" draggable="true" matTooltip="Task List"
+      matTooltipPosition="right" style="margin-bottom:12px; cursor: grab;">
+      <button mat-button disableRipple
+        style="width:100%; display:flex; align-items:center; justify-content:center; flex-direction: column; padding:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 24" fill="none">
+          <rect width="32" height="24" rx="2" fill="#FFF" />
+          <path fill="#48505E"
+            d="M6.28 7.77a.75.75 0 0 0-1.06 1.06l1.5 1.5a.75.75 0 0 0 1.06 0l3-3a.75.75 0 0 0-1.06-1.06L7.25 8.74l-.97-.97zm0 6.5a.75.75 0 0 0-1.06 1.06l1.5 1.5a.75.75 0 0 0 1.06 0l3-3a.75.75 0 0 0-1.06-1.06l-2.47 2.47-.97-.97zM14.75 8h11.3a.75.75 0 1 1 0 1.5h-11.3a.75.75 0 1 1 0-1.5zm0 6.4h11.3a.75.75 0 1 1 0 1.5h-11.3a.75.75 0 1 1 0-1.5z" />
+        </svg>
+        <span style="font-size: 12px; margin-top: 4px;">Task List</span>
+      </button>
+    </div>
+
+    <!-- Upload Tool -->
+    <div class="file-tool" style="margin-top: 16px; text-align:center;">
+      <button mat-stroked-button color="primary" style="width: 100%;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 32 32"
+          style="vertical-align: middle; margin-right: 4px;">
+          <rect width="32" height="32" rx="4" fill="#1B2536" />
+          <path fill="#323B4A"
+            d="M18.586 6a1 1 0 0 1 .707.293l4.414 4.414a1 1 0 0 1 .293.707V24a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h8.586zM17 7.5h-7a.5.5 0 0 0-.5.5v16a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V13h-" />
+        </svg>
+        Upload
+      </button>
+    </div>
+
+  </div>
+</div>
